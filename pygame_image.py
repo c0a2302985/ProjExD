@@ -18,9 +18,11 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0]) # screen surfaceに背景画像surfaceを張り付ける
-        screen.blit(kk_img, [300, 200])
+        screen.blit(kk_img, [tmr, 200])
         pg.display.update()
         tmr += 1        
+        if tmr > 800:
+            tmr = 0
         clock.tick(200)
 
 
