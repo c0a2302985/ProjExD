@@ -23,13 +23,13 @@ def main():
         key_list = pg.key.get_pressed()    
         if key_list[pg.K_UP]:
             kk_rct.move_ip((0, -1))
-        if key_list[pg.K_DOWN]:
+        elif key_list[pg.K_DOWN]:
             kk_rct.move_ip((0, 1))
-        if key_list[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
-        else:
+        elif key_list[pg.K_LEFT]:
             kk_rct.move_ip((-1, 0))
-        if key_list[pg.K_LEFT]:
+        elif key_list[pg.K_RIGHT]:
+            kk_rct.move_ip((1, 0))
+        if not(key_list[pg.K_RIGHT]):
             kk_rct.move_ip((-1, 0))
 
         x = tmr % 3200
