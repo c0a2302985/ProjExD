@@ -20,17 +20,19 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        w = -1
+        h = 0
         key_list = pg.key.get_pressed()    
         if key_list[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
-        elif key_list[pg.K_DOWN]:
-            kk_rct.move_ip((0, 1))
-        elif key_list[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
-        elif key_list[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))
-        if not(key_list[pg.K_RIGHT]):
-            kk_rct.move_ip((-1, 0))
+            h = -1
+        if key_list[pg.K_DOWN]:
+            h = 1
+        if key_list[pg.K_LEFT]:
+            w -= 1
+        if key_list[pg.K_RIGHT]:
+            w = 1
+
+        kk_rct.move_ip((w, h))
 
         x = tmr % 3200
         screen.blit(bg_img, [-x, 0]) # screen surfaceに背景画像surfaceを張り付ける
